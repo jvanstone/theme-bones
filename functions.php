@@ -146,6 +146,26 @@ function bones_theme_customizer($wp_customize) {
   // Uncomment the following to change the default section titles
   // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
   // $wp_customize->get_section('background_image')->title = __( 'Images' );
+
+/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		$logo_width  = 100;
+		$logo_height = 100;
+
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height'               => $logo_height,
+				'width'                => $logo_width,
+				'flex-width'           => false,
+				'flex-height'          => false,
+				'header-text'          => array( 'site-title', 'site-description' ),
+				'unlink-homepage-logo' => false,
+			)
+		);
 }
 
 add_action( 'customize_register', 'bones_theme_customizer' );
